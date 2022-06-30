@@ -50,15 +50,19 @@ rl.question("Digite um texto breve: \n", (text) => {
     }
   };
 
-  containSpecialCharacter(text) ||
-  containOnlyLowercase(text) === false ||
-  containMoreThanOneWord(text) === false
-    ? console.log(`Não foi possível refazer a frase.\nSaída: ${text}`)
-    : (refectorPhrase(phraseArray),
+  if (
+      containSpecialCharacter(text)
+      || containOnlyLowercase(text) === false
+      || containMoreThanOneWord(text) === false
+  ) {
+    console.log(`Não foi possível refazer a frase.\nSaída: ${text}`);
+  } else {
+    refectorPhrase(phraseArray),
       (count !== phraseArray.length
         ? (answer = text += ".")
         : (answer = answer += "."),
-      console.log(`A nova frase é: ${answer}`)));
+      console.log(`A nova frase é:\n${answer}`));
+  }
 
   rl.close();
 });
